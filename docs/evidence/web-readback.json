@@ -1,0 +1,16 @@
+{
+  "version": "5.2.2 LTS",
+  "exists": true,
+  "name": "AI_Web_Connection_Test",
+  "dimensions": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "location": [
+    3.0,
+    0.0,
+    0.0
+  ],
+  "probe": "web-20261011"
+}

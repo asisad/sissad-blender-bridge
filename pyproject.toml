@@ -1,0 +1,19 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sissad-blender-bridge"
+version = "0.1.0"
+description = "Local Python API and CLI for Blender MCP server profiles"
+requires-python = ">=3.11"
+dependencies = ["mcp>=1.26,<2"]
+
+[project.scripts]
+sissad-blender = "sissad_blender_bridge.cli:main"
+
+[dependency-groups]
+dev = ["pytest>=8,<10"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

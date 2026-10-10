@@ -1,0 +1,111 @@
+{
+  "date": "2026-10-11",
+  "local_profiles": [
+    {
+      "profile": "lab52",
+      "passed": true,
+      "stage_names": [
+        "create",
+        "material",
+        "camera1",
+        "camera2",
+        "save",
+        "readback"
+      ]
+    },
+    {
+      "profile": "community52",
+      "passed": true,
+      "stage_names": [
+        "create",
+        "material",
+        "camera1",
+        "camera2",
+        "save",
+        "readback"
+      ]
+    },
+    {
+      "profile": "lab53",
+      "passed": true,
+      "stage_names": [
+        "create",
+        "material",
+        "camera1",
+        "camera2",
+        "save",
+        "readback"
+      ]
+    },
+    {
+      "profile": "community53",
+      "passed": true,
+      "stage_names": [
+        "create",
+        "material",
+        "camera1",
+        "camera2",
+        "save",
+        "readback"
+      ]
+    }
+  ],
+  "roundtrip_passed": true,
+  "independent_reopen": [
+    {
+      "profile": "lab52",
+      "version": "5.2.2 LTS",
+      "dimensions": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "vertices": 8
+    },
+    {
+      "profile": "community52",
+      "version": "5.2.2 LTS",
+      "dimensions": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "vertices": 8
+    },
+    {
+      "profile": "lab53",
+      "version": "5.3.0 Beta",
+      "dimensions": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "vertices": 8
+    },
+    {
+      "profile": "community53",
+      "version": "5.3.0 Beta",
+      "dimensions": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "vertices": 8
+    }
+  ],
+  "limitations": [
+    "Polling of Blender-origin change, not push event streaming.",
+    "MCP UI resource delivery is not proof of UI rendering inside Codex."
+  ],
+  "unit_tests_passed": 16,
+  "images": [
+    {
+      "sha256": "ab7cd4bb5682ca0ab0131523ffd0b3f0c57084d599d2963bf0f71adb87b8ba93",
+      "file": "lab52-view1.png"
+    },
+    {
+      "sha256": "c33de39b804d6cd296c11c529c4f138e8e38624677e0c0afed7ea0c156d9892c",
+      "file": "lab53-view2.png"
+    }
+  ]
+}
