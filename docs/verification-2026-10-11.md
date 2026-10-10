@@ -72,6 +72,9 @@ individual ChatGPT Web invocation and interactive UI rendering remain untested.
   is obsolete for the pinned version.
 - Tunnel command parsing on Windows consumes backslashes. Quoted forward-slash
   paths fix process startup; the connector now checks actual health/readiness.
+- The first clean CI checkout lacked the ignored `.runtime` parent needed by
+  pytest's explicit temporary directory. CI and development instructions now
+  create that parent before running tests.
 
 ## Remaining scope boundaries
 

@@ -98,6 +98,7 @@ belong in a public commit.
 
 ```powershell
 uv sync --frozen
+uv run python -c "from pathlib import Path; Path('.runtime').mkdir(exist_ok=True)"
 uv run pytest --basetemp .runtime/pytest -q
 uv build
 git diff --check
