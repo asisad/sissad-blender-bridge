@@ -127,6 +127,19 @@ class BridgeClient:
             raise BridgeError("profile_missing", "Unknown profile.")
         return self.profiles[name]
 
+    def _stdio_parameters(self, item: dict) -> StdioServerParameters:
+        command, args = item["command"], item.get("args", [])
+        environment = {**os.environ, **item.get("env", {})}
+        # Own launch adapter; preserve the pinned upstream and all privacy/safe-mode flags.
+        executable = Path(command)
+        if executable.name.casefold() in {"mcp-for-blender.exe", "mcp-for-blender"}:
+            interpreter = executable.with_name("python.exe" if executable.suffix.casefold() == ".exe" else "python")
+            if not interpreter.is_file():
+                raise BridgeError("config_invalid", "Community profile requires its sibling Python interpreter.")
+            command = str(interpreter)
+            args = [str(Path(__file__).with_name("community_bootstrap.py")), *args]
+        return StdioServerParameters(command=command, args=args, env=environment, cwd=str(self.config_path.parent))
+
     @asynccontextmanager
     async def persistent(self, profile: str, *, timeout: float = 300):
         """Keep one upstream process/session alive for a downstream connection.
@@ -137,7 +150,7 @@ class BridgeClient:
         if isinstance(timeout, bool) or not isinstance(timeout, (int, float)) or not math.isfinite(timeout) or timeout <= 0:
             raise BridgeError("timeout_invalid", "Timeout must be a finite positive number.")
         item = self.profile(profile)
-        parameters = StdioServerParameters(command=item["command"], args=item.get("args", []), env={**os.environ, **item.get("env", {})}, cwd=str(self.config_path.parent))
+        parameters = self._stdio_parameters(item)
         try:
             with open(os.devnull, "w") as error_stream:
                 async with stdio_client(parameters, errlog=error_stream) as (read, write):
@@ -154,7 +167,7 @@ class BridgeClient:
         if isinstance(timeout, bool) or not isinstance(timeout, (int, float)) or not math.isfinite(timeout) or timeout <= 0:
             raise BridgeError("timeout_invalid", "Timeout must be a finite positive number.")
         item = self.profile(profile)
-        parameters = StdioServerParameters(command=item["command"], args=item.get("args", []), env={**os.environ, **item.get("env", {})}, cwd=str(self.config_path.parent))
+        parameters = self._stdio_parameters(item)
         try:
             async with asyncio.timeout(timeout):
                 with open(os.devnull, "w") as error_stream:
