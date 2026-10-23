@@ -57,6 +57,9 @@ This connection targets one explicit profile. Switching to another version or
 provider requires reconnecting with the corresponding profile and verifying the
 actual scene version. Do not run multiple different upstreams on one tunnel ID
 simultaneously. Managed runtime persistence does not by itself install Windows
-startup scheduling: after restart, rerun the connection script with the local key.
+startup scheduling. For an existing Windows installation with the recovery task,
+use the [hidden Blender-dependent lifecycle](hidden-lifecycle-2026-10-23.md): only
+the watcher starts at sign-in, and the tunnel follows Blender's running state.
+Without that task, rerun the connection script with the existing local key.
 
 Sources: [Secure MCP Tunnels](https://developers.openai.com/api/docs/guides/secure-mcp-tunnels), [connect a custom ChatGPT integration](https://developers.openai.com/plugins/deploy/connect-chatgpt), [Developer mode and MCP apps](https://help.openai.com/en/articles/12584461-developer-mode-and-mcp-apps-in-chatgpt).
