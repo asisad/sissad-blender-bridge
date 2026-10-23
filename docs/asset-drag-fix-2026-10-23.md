@@ -1,5 +1,9 @@
 # Selected-asset mouse transfer repair — 2026-10-23
 
+Historical fallback only. The completed ordinary Windows mouse drag repair is
+documented in [native-mouse-fix-2026-10-23.md](native-mouse-fix-2026-10-23.md).
+The Append-based helper below was not used for the final native mouse acceptance.
+
 The existing native Asset Browser drag was inconsistent under the installed
 Windows Computer Use gesture. Native event inspection showed a source press,
 one large move directly into the 3D view, and release. Repeated stock drags

@@ -7,3 +7,4 @@
 5. One writer per Blender scene. Preserve existing files and settings; test only disposable scenes. No paid asset service activation.
 6. Record exact versions, upstream commits, evidence and unresolved blockers. Do not claim all plugins or future versions are tested.
 7. Run unit and integration checks, inspect actual rendered images, and sanitize publication before a release.
+8. On 2026-10-23 the user explicitly authorized a local CLI mouse-input path restricted to Blender, as an exception to the Computer Use JS-only workflow. Verify the executable, process, foreground window and scene before input. This permission does not extend to other applications, elevated UI, security/privacy settings or the SketchUp project.

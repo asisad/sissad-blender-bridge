@@ -96,6 +96,10 @@ belong in a public commit.
 
 ## Development
 
+The explicitly approved Windows-only native Asset Browser mouse path is documented
+in [the verified mouse procedure](docs/native-mouse-fix-2026-10-23.md). It starts
+with a dry run and uses a marked review scene and the existing local connection.
+
 ```powershell
 uv sync --frozen
 uv run python -c "from pathlib import Path; Path('.runtime').mkdir(exist_ok=True)"
